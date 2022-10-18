@@ -1,7 +1,7 @@
 {
   "name": "presentation",
   "version": "1.0.0",
-  "description": "Description for presentation.",
+  "description": "Build slideshow presentations from within Roam!",
   "main": "./build/main.js",
   "scripts": {
     "prebuild:roam": "npm install",
@@ -13,6 +13,7 @@
     "roamjs-scripts": "^0.24.0"
   },
   "dependencies": {
+    "reveal.js": "^4.3.0",
     "roamjs-components": "^0.74.13"
   }
 }
