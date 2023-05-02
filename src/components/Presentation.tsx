@@ -526,6 +526,9 @@ const ContentSlide = ({
       const target = e.target as HTMLElement;
       if (target.tagName === "IMG") {
         setImageDialogSrc((target as HTMLImageElement).src);
+        document
+          .getElementById("roamjs-presentation-container")
+          .classList.add("image-dialog-open");
       } else if (collapsible) {
         const className = target.className;
         if (className.includes("roamjs-collapsible-caret")) {
@@ -558,10 +561,12 @@ const ContentSlide = ({
     },
     [collapsible, setImageDialogSrc]
   );
-  const onDialogClose = useCallback(
-    () => setImageDialogSrc(""),
-    [setImageDialogSrc]
-  );
+  const onDialogClose = useCallback(() => {
+    setImageDialogSrc(""),
+      document
+        .getElementById("roamjs-presentation-container")
+        .classList.remove("image-dialog-open");
+  }, [setImageDialogSrc]);
 
   const props = {
     ...(animate ? { "data-auto-animate": true } : {}),
