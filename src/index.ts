@@ -12,10 +12,9 @@ import getUidsFromButton from "roamjs-components/dom/getUidsFromButton";
 import getTextByBlockUid from "roamjs-components/queries/getTextByBlockUid";
 import runExtension from "roamjs-components/util/runExtension";
 
-export default runExtension({
-  run: async () => {
-    const mainStyle =
-      addStyle(`@import url("https://unpkg.com/reveal.js@4.3.0/dist/reveal.css");
+export default runExtension(async () => {
+  const mainStyle =
+    addStyle(`@import url("https://unpkg.com/reveal.js@4.3.0/dist/reveal.css");
 .roamjs-collapsible-caret {
   position: absolute;
   top: 12px;
@@ -81,53 +80,52 @@ export default runExtension({
   pointer-events: none;
 }
 `);
-    createButtonObserver({
-      attribute: "presentation",
-      shortcut: "slides",
-      render: (button: HTMLButtonElement) => {
-        const { blockUid } = getUidsFromButton(button);
-        if (!blockUid) {
-          return;
-        }
-        const text = getTextByBlockUid(blockUid);
-        const buttonText = text.match(
-          "{{(presentation|slides|#?\\[\\[presentation\\]\\]|#?\\[\\[slides\\]\\]|#presentation|#slides):(.*)}}"
-        )?.[2];
-        const options = buttonText
-          ? {
-              theme: buttonText.match(
-                `(?:\\[\\[{|{\\[\\[|{)theme:(${VALID_THEMES.join(
-                  "|"
-                )})(?:\\]\\]}|}\\]\\]|})`
-              )?.[1],
-              notes: buttonText.match(
-                "(?:\\[\\[{|{\\[\\[|{)notes:(true|false)(?:\\]\\]}|}\\]\\]|})"
-              )?.[1],
-              collapsible: !!buttonText.match(COLLAPSIBLE_REGEX),
-              animate: !!buttonText.match(ANIMATE_REGEX),
-              transition: buttonText.match(TRANSITION_REGEX)?.[1] || "",
-            }
-          : {};
-        render({
-          button,
-          getSlides: () => getFullTreeByParentUid(blockUid).children,
-          options,
-        });
-      },
-    });
+  createButtonObserver({
+    attribute: "presentation",
+    shortcut: "slides",
+    render: (button: HTMLButtonElement) => {
+      const { blockUid } = getUidsFromButton(button);
+      if (!blockUid) {
+        return;
+      }
+      const text = getTextByBlockUid(blockUid);
+      const buttonText = text.match(
+        "{{(presentation|slides|#?\\[\\[presentation\\]\\]|#?\\[\\[slides\\]\\]|#presentation|#slides):(.*)}}"
+      )?.[2];
+      const options = buttonText
+        ? {
+            theme: buttonText.match(
+              `(?:\\[\\[{|{\\[\\[|{)theme:(${VALID_THEMES.join(
+                "|"
+              )})(?:\\]\\]}|}\\]\\]|})`
+            )?.[1],
+            notes: buttonText.match(
+              "(?:\\[\\[{|{\\[\\[|{)notes:(true|false)(?:\\]\\]}|}\\]\\]|})"
+            )?.[1],
+            collapsible: !!buttonText.match(COLLAPSIBLE_REGEX),
+            animate: !!buttonText.match(ANIMATE_REGEX),
+            transition: buttonText.match(TRANSITION_REGEX)?.[1] || "",
+          }
+        : {};
+      render({
+        button,
+        getSlides: () => getFullTreeByParentUid(blockUid).children,
+        options,
+      });
+    },
+  });
 
-    const themes = VALID_THEMES.map((s) => {
-      const style = addStyle(
-        `@import url("https://unpkg.com/reveal.js@4.3.0/dist/theme/${s}.css");`,
-        `${s}.css`
-      );
-      style.className = "roamjs-style-reveal";
-      style.disabled = true;
-      return style;
-    });
+  const themes = VALID_THEMES.map((s) => {
+    const style = addStyle(
+      `@import url("https://unpkg.com/reveal.js@4.3.0/dist/theme/${s}.css");`,
+      `${s}.css`
+    );
+    style.className = "roamjs-style-reveal";
+    style.disabled = true;
+    return style;
+  });
 
-    return {
-      elements: [mainStyle].concat(themes),
-    };
-  },
+  return {
+    elements: [mainStyle].concat(themes),
+  };
 });
