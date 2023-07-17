@@ -123,4 +123,4 @@ Check out some of [these presentations](https://roamresearch.com/#/app/nodebook/
 
 ## Demo
 
-<video src="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2Froamjs%2F-Atu3qteqG.mp4" controls="controls" height="600"></video>
+![roamjs-presentation-demo](https://github.com/RoamJS/presentation/assets/3792666/49626b70-d325-4e66-bf7b-6aa35d05c392)
