@@ -8,6 +8,7 @@ Type `{{presentation}}` or `{{slides}}` in a block. Clicking the button will ove
 
 To specify what content is part of the presentation, create a child block for each slide. The text of each child will serve as the slide title. Each child block then in turn renders its children as the slide contents in a bulleted outline. For example, the Playground presentation below uses the following structure:
 
+```
 - {{presentation}}
   - First Slide
   - Second Slide
@@ -18,6 +19,7 @@ To specify what content is part of the presentation, create a child block for ea
       - With a nested point!
     - Third bullet sealing the deal
   - Final Slide
+```
 
 If a slide has `{title}` in the title or has no children, it will render as a title slide. Otherwise, the slide will render as a content slide.
 
