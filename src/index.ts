@@ -6,6 +6,7 @@ import {
   TRANSITION_REGEX,
   VALID_THEMES,
 } from "./components/Presentation";
+import { render2 } from "./components/Presentation2";
 import getFullTreeByParentUid from "roamjs-components/queries/getFullTreeByParentUid";
 import createButtonObserver from "roamjs-components/dom/createButtonObserver";
 import getUidsFromButton from "roamjs-components/dom/getUidsFromButton";
@@ -109,6 +110,40 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
           }
         : {};
       render({
+        button,
+        getSlides: () => getFullTreeByParentUid(blockUid).children,
+        options,
+      });
+    },
+  });
+  createButtonObserver({
+    attribute: "presentation2",
+    shortcut: "slides2",
+    render: (button: HTMLButtonElement) => {
+      const { blockUid } = getUidsFromButton(button);
+      if (!blockUid) {
+        return;
+      }
+      const text = getTextByBlockUid(blockUid);
+      const buttonText = text.match(
+        "{{(presentation2|slides2|#?\\[\\[presentation2\\]\\]|#?\\[\\[slides2\\]\\]|#presentation2|#slides2):(.*)}}"
+      )?.[2];
+      const options = buttonText
+        ? {
+            theme: buttonText.match(
+              `(?:\\[\\[{|{\\[\\[|{)theme:(${VALID_THEMES.join(
+                "|"
+              )})(?:\\]\\]}|}\\]\\]|})`
+            )?.[1],
+            notes: buttonText.match(
+              "(?:\\[\\[{|{\\[\\[|{)notes:(true|false)(?:\\]\\]}|}\\]\\]|})"
+            )?.[1],
+            collapsible: !!buttonText.match(COLLAPSIBLE_REGEX),
+            animate: !!buttonText.match(ANIMATE_REGEX),
+            transition: buttonText.match(TRANSITION_REGEX)?.[1] || "",
+          }
+        : {};
+      render2({
         button,
         getSlides: () => getFullTreeByParentUid(blockUid).children,
         options,
