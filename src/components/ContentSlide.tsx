@@ -6,6 +6,7 @@ import { getResizeStyle, parseSolo } from "./TitleSlide";
 import Notes from "./Notes";
 import SrcFromText from "./SrcFromText";
 import { parseRoamBlocks } from "../utils/getParseRoamBlocks";
+import { Embed } from "./Embed";
 
 const STARTS_WITH_IMAGE = new RegExp("^image ", "i");
 const STARTS_WITH_IFRAME = new RegExp("^iframe ", "i");
@@ -320,6 +321,11 @@ const ContentSlide = ({
         className="r-stretch"
         onClick={onRootClick}
       >
+        <div className={"roamjs-bullets-container"}>
+          {bullets.map((b) => (
+            <Embed key={b.uid} uid={b.uid} />
+          ))}
+        </div>
         <div
           className={"roamjs-bullets-container"}
           dangerouslySetInnerHTML={{
