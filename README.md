@@ -1,6 +1,12 @@
+<a href="https://roamjs.com/">
+    <img src="https://avatars.githubusercontent.com/u/138642184" alt="RoamJS Logo" title="RoamJS" align="right" height="60" />
+</a>
+
 # Presentation
 
-Build slideshow presentations from within Roam!
+**Turn your Roam outlines into polished slide decks. Present your ideas with beautiful themes, speaker notes, transitions, and flexible slide layouts (images, iframes, media) — all powered by the structure you already write in your graph.**
+
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/RoamJS/presentation)
 
 ## Usage
 
