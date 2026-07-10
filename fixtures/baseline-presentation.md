@@ -1,0 +1,164 @@
+- {{presentation:{theme:black}{notes:true}{transition:slide}}}
+  - PRESENTATION RENDERER {title}
+    - Baseline for the presentation renderer
+    - Speaker note: title slide
+  - Inline formatting and links
+    - **Bold**, **italic**, ^^highlighted^^, and ~~struck through~~ text
+    - A [[Daily Notes]] page reference, #tag, [external link](https://roamresearch.com), and `inline code`
+    - {{TODO}} An unchecked task
+    - {{DONE}} A completed task
+    - Speaker note: verify formatting, links, and tasks
+  - Nested outlines
+    - First top-level bullet
+      - First nested bullet
+        - Third-level bullet
+      - Second nested bullet
+    - Second top-level bullet
+    - Speaker note: verify all nesting levels and bullets
+  - Document and numbered views
+    - Set this block to Document view before presenting
+      - Document child A
+      - Document child B
+    - Set this block to Numbered view before presenting
+      - Numbered child A
+      - Numbered child B
+    - Speaker note: manually set the two named parent block view types
+  - Image Right {layout:Image Right}
+    - ![RoamJS logo](https://avatars.githubusercontent.com/u/138642184)
+    - The image should occupy the right half
+    - Clicking the image should open the image dialog
+    - Speaker note: image-right layout and image dialog
+  - Image Left {layout:Image Left}
+    - ![RoamJS logo](https://avatars.githubusercontent.com/u/138642184)
+    - The image should occupy the left half
+    - Speaker note: image-left layout
+  - Image Center {layout:Image Center}
+    - ![RoamJS logo](https://avatars.githubusercontent.com/u/138642184)
+    - This bullet is intentionally hidden by the centered layout
+    - Speaker note: centered image fills the content area
+  - Iframe Right {layout:Iframe Right}
+    - {{iframe: https://www.youtube.com/embed/dQw4w9WgXcQ}}
+    - The iframe should occupy the right half
+    - Speaker note: iframe-right layout
+  - Iframe Left {layout:Iframe Left}
+    - {{iframe: https://www.youtube.com/embed/dQw4w9WgXcQ}}
+    - The iframe should occupy the left half
+    - Speaker note: iframe-left layout
+  - Iframe Center {layout:Iframe Center}
+    - {{iframe: https://www.youtube.com/embed/dQw4w9WgXcQ}}
+    - This bullet is intentionally hidden by the centered layout
+    - Speaker note: centered iframe fills the content area
+  - Video media {layout:Media Right}
+    - {{video: https://www.youtube.com/watch?v=dQw4w9WgXcQ}}
+    - Native Roam media should occupy the right half
+    - Speaker note: media-right layout
+  - Collapsible outline {collapsible}
+    - Expand this point
+      - First revealed child
+      - Second revealed child
+        - Deeper revealed child
+    - Another top-level point
+    - Speaker note: verify progressive expansion and collapse
+  - Auto animate A {animate}
+    - This text is shared across two slides
+    - State A
+    - Speaker note: advance to the next slide to verify auto animation
+  - Auto animate B {animate}{transition:fade}
+    - This text is shared across two slides
+    - State B
+    - Speaker note: verify auto animation and fade transition
+  - Hidden content
+    - Visible bullet
+    - This bullet must not render {hide}
+      - Its descendants must also remain hidden
+    - Another visible bullet
+    - Speaker note: only the two visible bullets should appear
+  - This entire slide must not render {hide}
+    - Hidden slide content
+    - Speaker note: hidden slide
+  - Forced title slide {title}
+    - Subtitle rendered from the first child
+    - Speaker note: forced title slide
+  - End
+- {{presentation2:{theme:black}{notes:true}{transition:slide}}}
+  - PRESENTATION RENDERER {title}
+    - Baseline for the presentation renderer
+    - Speaker note: title slide
+  - Inline formatting and links
+    - **Bold**, **italic**, ^^highlighted^^, and ~~struck through~~ text
+    - A [[Daily Notes]] page reference, #tag, [external link](https://roamresearch.com), and `inline code`
+    - {{TODO}} An unchecked task
+    - {{DONE}} A completed task
+    - Speaker note: verify formatting, links, and tasks
+  - Nested outlines
+    - First top-level bullet
+      - First nested bullet
+        - Third-level bullet
+      - Second nested bullet
+    - Second top-level bullet
+    - Speaker note: verify all nesting levels and bullets
+  - Document and numbered views
+    - Set this block to Document view before presenting
+      - Document child A
+      - Document child B
+    - Set this block to Numbered view before presenting
+      - Numbered child A
+      - Numbered child B
+    - Speaker note: manually set the two named parent block view types
+  - Image Right {layout:Image Right}
+    - ![RoamJS logo](https://avatars.githubusercontent.com/u/138642184)
+    - The image should occupy the right half
+    - Clicking the image should open the image dialog
+    - Speaker note: image-right layout and image dialog
+  - Image Left {layout:Image Left}
+    - ![RoamJS logo](https://avatars.githubusercontent.com/u/138642184)
+    - The image should occupy the left half
+    - Speaker note: image-left layout
+  - Image Center {layout:Image Center}
+    - ![RoamJS logo](https://avatars.githubusercontent.com/u/138642184)
+    - This bullet is intentionally hidden by the centered layout
+    - Speaker note: centered image fills the content area
+  - Iframe Right {layout:Iframe Right}
+    - {{iframe: https://www.youtube.com/embed/dQw4w9WgXcQ}}
+    - The iframe should occupy the right half
+    - Speaker note: iframe-right layout
+  - Iframe Left {layout:Iframe Left}
+    - {{iframe: https://www.youtube.com/embed/dQw4w9WgXcQ}}
+    - The iframe should occupy the left half
+    - Speaker note: iframe-left layout
+  - Iframe Center {layout:Iframe Center}
+    - {{iframe: https://www.youtube.com/embed/dQw4w9WgXcQ}}
+    - This bullet is intentionally hidden by the centered layout
+    - Speaker note: centered iframe fills the content area
+  - Video media {layout:Media Right}
+    - {{video: https://www.youtube.com/watch?v=dQw4w9WgXcQ}}
+    - Native Roam media should occupy the right half
+    - Speaker note: media-right layout
+  - Collapsible outline {collapsible}
+    - Expand this point
+      - First revealed child
+      - Second revealed child
+        - Deeper revealed child
+    - Another top-level point
+    - Speaker note: verify progressive expansion and collapse
+  - Auto animate A {animate}
+    - This text is shared across two slides
+    - State A
+    - Speaker note: advance to the next slide to verify auto animation
+  - Auto animate B {animate}{transition:fade}
+    - This text is shared across two slides
+    - State B
+    - Speaker note: verify auto animation and fade transition
+  - Hidden content
+    - Visible bullet
+    - This bullet must not render {hide}
+      - Its descendants must also remain hidden
+    - Another visible bullet
+    - Speaker note: only the two visible bullets should appear
+  - This entire slide must not render {hide}
+    - Hidden slide content
+    - Speaker note: hidden slide
+  - Forced title slide {title}
+    - Subtitle rendered from the first child
+    - Speaker note: forced title slide
+  - End

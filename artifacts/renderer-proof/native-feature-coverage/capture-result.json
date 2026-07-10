@@ -1,0 +1,438 @@
+{
+  "ok": true,
+  "capturedAt": "2026-07-10T08:06:18.029Z",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "fixture": {
+    "tagTitle": "Presentation Native Feature Proof 2026-07-10T08-05-52-843Z",
+    "supportTitle": "Presentation Native Embed Page 2026-07-10T08-05-52-843Z",
+    "deckTitle": "Presentation Native Feature Deck 2026-07-10T08-05-52-843Z",
+    "supportPageUid": "D05nggWqP",
+    "deckPageUid": "BmVKaGwXG",
+    "rootUid": "84YCienV2",
+    "blockEmbedUid": "8Y_q4OAsA",
+    "documentViewUid": "AeYA19Jww",
+    "numberedViewUid": "Jj_gjN-bU",
+    "excalidrawUid": "n1Vo5Rf9F",
+    "createdCount": 51
+  },
+  "excalidraw": {
+    "hostCount": 1,
+    "starterCount": 0,
+    "canvasCount": 2,
+    "interactiveCanvasCount": 1,
+    "box": {
+      "x": 72,
+      "y": 45,
+      "width": 1296,
+      "height": 810
+    },
+    "drawn": true,
+    "toolMetadata": [
+      {
+        "tag": "BUTTON",
+        "ariaLabel": null,
+        "title": null,
+        "testId": "main-menu-trigger",
+        "text": ""
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Keep selected tool active after drawing — Q",
+        "testId": null,
+        "text": ""
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Hand (panning tool) — H",
+        "testId": null,
+        "text": ""
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Selection — V or 1",
+        "testId": null,
+        "text": "1"
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Rectangle — R or 2",
+        "testId": null,
+        "text": "2"
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Diamond — D or 3",
+        "testId": null,
+        "text": "3"
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Ellipse — O or 4",
+        "testId": null,
+        "text": "4"
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Arrow — A or 5",
+        "testId": null,
+        "text": "5"
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Line — L or 6",
+        "testId": null,
+        "text": "6"
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Draw — P or 7",
+        "testId": null,
+        "text": "7"
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Text — T or 8",
+        "testId": null,
+        "text": "8"
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Insert image — 9",
+        "testId": null,
+        "text": "9"
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Eraser — E or 0",
+        "testId": null,
+        "text": "0"
+      },
+      {
+        "tag": "BUTTON",
+        "ariaLabel": null,
+        "title": "More tools",
+        "testId": "dropdown-menu-button",
+        "text": ""
+      },
+      {
+        "tag": "LABEL",
+        "ariaLabel": null,
+        "title": "Library",
+        "testId": null,
+        "text": "Library"
+      },
+      {
+        "tag": "BUTTON",
+        "ariaLabel": "Zoom out",
+        "title": "Zoom out — Cmd+-",
+        "testId": null,
+        "text": ""
+      },
+      {
+        "tag": "BUTTON",
+        "ariaLabel": "Reset zoom",
+        "title": "Reset zoom",
+        "testId": null,
+        "text": "100%"
+      },
+      {
+        "tag": "BUTTON",
+        "ariaLabel": "Zoom in",
+        "title": "Zoom in — Cmd++",
+        "testId": null,
+        "text": ""
+      },
+      {
+        "tag": "BUTTON",
+        "ariaLabel": "Undo",
+        "title": null,
+        "testId": "button-undo",
+        "text": ""
+      },
+      {
+        "tag": "BUTTON",
+        "ariaLabel": "Redo",
+        "title": null,
+        "testId": "button-redo",
+        "text": ""
+      },
+      {
+        "tag": "BUTTON",
+        "ariaLabel": "Help",
+        "title": "Help — ?",
+        "testId": null,
+        "text": ""
+      },
+      {
+        "tag": "BUTTON",
+        "ariaLabel": null,
+        "title": null,
+        "testId": null,
+        "text": "Exit zen mode"
+      },
+      {
+        "pointTarget": {
+          "tag": "CANVAS",
+          "className": "excalidraw__canvas interactive",
+          "pointerEvents": "auto"
+        },
+        "startX": 492,
+        "startY": 265,
+        "endX": 772,
+        "endY": 445
+      }
+    ]
+  },
+  "deck": {
+    "sectionCount": 11,
+    "slides": [
+      {
+        "index": 0,
+        "name": "title",
+        "file": "01-title.png",
+        "metrics": {
+          "title": "NATIVE FEATURE PROOF",
+          "text": "NATIVE FEATURE PROOFRoam React renderers inside RevealCode · Math · Search · Embeds · Views · Extensions",
+          "codeMirror": 0,
+          "katex": 0,
+          "query": 0,
+          "search": 0,
+          "embeds": 0,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 0,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 0,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 1,
+        "name": "code-highlighting",
+        "file": "02-code-highlighting.png",
+        "metrics": {
+          "title": "Code highlighting",
+          "text": "Code highlightingCode highlighting9123›const renderer = \"ui.react.Block\";console.log(renderer);javascript9123›@prefix schema: <https://schema.org/> .<https://roamresearch.com> schema:name \"Roam Research\" .turtle",
+          "codeMirror": 2,
+          "katex": 0,
+          "query": 0,
+          "search": 0,
+          "embeds": 0,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 2,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 2,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 2,
+        "name": "latex-math",
+        "file": "03-latex-math.png",
+        "metrics": {
+          "title": "LaTeX math",
+          "text": "LaTeX mathLaTeX math∫−∞∞e−x2 dx=π\\int_{-\\infty}^{\\infty} e^{-x^2}\\,dx = \\sqrt{\\pi}∫−∞∞​e−x2dx=π​Inline identity: E=mc2E = mc^2E=mc2",
+          "codeMirror": 0,
+          "katex": 2,
+          "query": 0,
+          "search": 0,
+          "embeds": 0,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 1,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 2,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 3,
+        "name": "query-and-search",
+        "file": "04-query-and-search.png",
+        "metrics": {
+          "title": "Query and search",
+          "text": "Query and searchQuery and search{and: [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]}4 resultsPresentation Native Embed Page 2026-07-10T08-05-52-843ZSearch result gamma [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]Search result beta [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]Search result alpha [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]Deeply nested block target [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]15 ResultsPresentation Native Feature Proof 2026-07-10T08-05-52-843ZPresentation Native Embed Page 2026-07-10T08-05-52-843ZSearch result gamma [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]Presentation Native Embed Page 2026-07-10T08-05-52-843ZSearch result beta [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]Presentation Native Embed Page 2026-07-10T08-05-52-843ZSearch result alpha [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]Presentation Native Embed Page 2026-07-10T08-05-52-843ZDeeply nested block target [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]1Block embed child with highlighted textGrandchild proves nested rendering",
+          "codeMirror": 0,
+          "katex": 0,
+          "query": 2,
+          "search": 1,
+          "embeds": 0,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 1,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 12,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 4,
+        "name": "page-embed",
+        "file": "05-page-embed.png",
+        "metrics": {
+          "title": "Page embed",
+          "text": "Page embedPage embedPresentation Native Embed Page 2026-07-10T08-05-52-843Z1",
+          "codeMirror": 0,
+          "katex": 0,
+          "query": 0,
+          "search": 0,
+          "embeds": 1,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 0,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 1,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 5,
+        "name": "block-embed",
+        "file": "06-block-embed.png",
+        "metrics": {
+          "title": "Block embed",
+          "text": "Block embedBlock embedDeeply nested block target [[Presentation Native Feature Proof 2026-07-10T08-05-52-843Z]]1Block embed child with highlighted textGrandchild proves nested rendering",
+          "codeMirror": 0,
+          "katex": 0,
+          "query": 0,
+          "search": 0,
+          "embeds": 1,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 0,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 4,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 6,
+        "name": "native-block-views",
+        "file": "07-native-block-views.png",
+        "metrics": {
+          "title": "Native block views",
+          "text": "Native block viewsNative block viewsDocument view rendered nativelyDocument child oneDocument child twoNumbered view rendered natively1.Numbered child one2.Numbered child two",
+          "codeMirror": 0,
+          "katex": 0,
+          "query": 0,
+          "search": 0,
+          "embeds": 0,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 0,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 4,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 7,
+        "name": "excalidraw",
+        "file": "08-excalidraw.png",
+        "metrics": {
+          "title": "Excalidraw",
+          "text": "ExcalidrawExcalidraw",
+          "codeMirror": 0,
+          "katex": 0,
+          "query": 0,
+          "search": 0,
+          "embeds": 0,
+          "excalidrawHosts": 1,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 0,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 1,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 8,
+        "name": "mermaid",
+        "file": "09-mermaid.png",
+        "metrics": {
+          "title": "Mermaid diagram",
+          "text": "Mermaid diagramMermaid diagram#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00{font-family:\"trebuchet ms\",verdana,arial,sans-serif;font-size:16px;fill:#333;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .error-icon{fill:#552222;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .error-text{fill:#552222;stroke:#552222;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .edge-thickness-normal{stroke-width:1px;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .edge-thickness-thick{stroke-width:3.5px;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .edge-pattern-solid{stroke-dasharray:0;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .edge-thickness-invisible{stroke-width:0;fill:none;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .edge-pattern-dashed{stroke-dasharray:3;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .edge-pattern-dotted{stroke-dasharray:2;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .marker{fill:#333333;stroke:#333333;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .marker.cross{stroke:#333333;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 svg{font-family:\"trebuchet ms\",verdana,arial,sans-serif;font-size:16px;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 p{margin:0;}#uuid794e3844-8d6e-45e1-b45e-7cfdb931bc00 .label{font-family:\"trebuchet",
+          "codeMirror": 0,
+          "katex": 0,
+          "query": 0,
+          "search": 0,
+          "embeds": 0,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 1,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 4,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 9,
+        "name": "native-table",
+        "file": "10-native-table.png",
+        "metrics": {
+          "title": "Native table",
+          "text": "Native tableNative tableFeatureCodeFeatureMathFeatureEmbedsRendererCodeMirrorRendererKaTeXRendererRoam BlockFeatureCodeMathEmbedsRendererCodeMirrorKaTeXRoam Block",
+          "codeMirror": 0,
+          "katex": 0,
+          "query": 0,
+          "search": 0,
+          "embeds": 0,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 10,
+          "tables": 1,
+          "numberedMarkers": 0,
+          "bullets": 9,
+          "multibars": 0
+        }
+      },
+      {
+        "index": 10,
+        "name": "end",
+        "file": "11-end.png",
+        "metrics": {
+          "title": "END",
+          "text": "END",
+          "codeMirror": 0,
+          "katex": 0,
+          "query": 0,
+          "search": 0,
+          "embeds": 0,
+          "excalidrawHosts": 0,
+          "excalidrawCanvases": 0,
+          "mermaidSvgs": 0,
+          "tables": 0,
+          "numberedMarkers": 0,
+          "bullets": 0,
+          "multibars": 0
+        }
+      }
+    ]
+  },
+  "pageErrors": []
+}

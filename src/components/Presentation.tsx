@@ -64,6 +64,7 @@ const parseSolo = ({
         viewType: "document",
         children: [],
         uid: "",
+        parents: [],
         heading: 0,
         open: true,
         textAlign,
@@ -588,7 +589,7 @@ const ContentSlide = ({
             __html: parseRoamBlocks({ content: bullets, viewType }),
           }}
           style={{
-            width: isImageLayout ? "50%" : "100%",
+            width: isSourceLayout && !isCenterLayout ? "50%" : "100%",
             transformOrigin: "left top",
             wordBreak: "break-word",
             display: isCenterLayout ? "none" : "block",
@@ -838,7 +839,11 @@ const PresentationContent: React.FunctionComponent<{
   }, [revealRef, initialized, startIndex, slides, mappedSlides]);
   return (
     <>
-      <div className="reveal" id="roamjs-reveal-root">
+      <div
+        className="reveal"
+        id="roamjs-reveal-root"
+        data-roamjs-show-notes={showNotes}
+      >
         <div className="slides" ref={slidesRef}>
           {mappedSlides.map((s: TreeNode & ContentSlideExtras, i) => (
             <React.Fragment key={i}>
