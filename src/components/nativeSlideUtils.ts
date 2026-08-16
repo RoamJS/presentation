@@ -13,6 +13,9 @@ export const shouldUseTitleLayout = ({
   visibleChildren: TreeNode[];
 }): boolean => forcedTitle || !visibleChildren.length;
 
+export const shouldExpandLayoutSource = (isMediaLayout: boolean): boolean =>
+  isMediaLayout;
+
 export const collectHiddenUids = (nodes: TreeNode[]): string[] =>
   nodes.flatMap((node) =>
     HIDE_REGEX.test(node.text)

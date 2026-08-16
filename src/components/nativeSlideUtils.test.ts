@@ -5,6 +5,7 @@ import {
   collectHiddenUids,
   findLargestFittingScale,
   getVisibleChildren,
+  shouldExpandLayoutSource,
   shouldUseTitleLayout,
 } from "./nativeSlideUtils";
 
@@ -46,6 +47,11 @@ test("collectHiddenUids finds hidden blocks in the original slide tree", () => {
     "hidden-top",
     "hidden-nested",
   ]);
+});
+
+test("only media layout sources render their descendants", () => {
+  assert.equal(shouldExpandLayoutSource(false), false);
+  assert.equal(shouldExpandLayoutSource(true), true);
 });
 
 test("findLargestFittingScale searches below its initial lower bound", () => {

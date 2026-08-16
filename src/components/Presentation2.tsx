@@ -28,6 +28,7 @@ import {
   getVisibleChildren,
   getVisibleLayoutSource,
   HIDE_REGEX,
+  shouldExpandLayoutSource,
   shouldUseTitleLayout,
 } from "./nativeSlideUtils";
 
@@ -385,7 +386,11 @@ const NativeContentSlide = ({ slide }: { slide: PreparedSlide }) => {
               height: "100%",
             }}
           >
-            <NativeRoamContent kind="block" uid={source.uid} open />
+            <NativeRoamContent
+              kind="block"
+              uid={source.uid}
+              open={shouldExpandLayoutSource(isMediaLayout)}
+            />
           </div>
         )}
       </div>
