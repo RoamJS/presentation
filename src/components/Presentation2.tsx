@@ -22,7 +22,14 @@ import {
   VALID_THEMES,
 } from "./Presentation";
 import NativeRoamContent from "./NativeRoamContent";
-import { getVisibleLayoutSource, HIDE_REGEX } from "./nativeSlideUtils";
+import {
+  collectHiddenUids,
+  findLargestFittingScale,
+  getVisibleChildren,
+  getVisibleLayoutSource,
+  HIDE_REGEX,
+  shouldUseTitleLayout,
+} from "./nativeSlideUtils";
 
 const LAYOUTS = [
   "Image Left",
@@ -67,13 +74,6 @@ type PresentationOptions = {
   windowId: string;
 };
 
-const collectHiddenUids = (nodes: TreeNode[]): string[] =>
-  nodes.flatMap((node) =>
-    HIDE_REGEX.test(node.text)
-      ? [node.uid]
-      : collectHiddenUids(node.children || []),
-  );
-
 export const prepareSlides = ({
   slides,
   showNotes,
@@ -94,7 +94,7 @@ export const prepareSlides = ({
       let collapsible = globalCollapsible;
       let animate = globalAnimate;
       let transition = globalTransition;
-      let isTitle = !slide.children.length;
+      let isTitle = false;
       const displayText = slide.text
         .replace(LAYOUT_REGEX, (_, capture: string) => {
           layout = capture;
@@ -117,9 +117,11 @@ export const prepareSlides = ({
           return "";
         })
         .trim();
-      const visibleChildren = slide.children.filter(
-        (child) => !HIDE_REGEX.test(child.text),
-      );
+      const visibleChildren = getVisibleChildren(slide.children);
+      isTitle = shouldUseTitleLayout({
+        forcedTitle: isTitle,
+        visibleChildren,
+      });
       const note = showNotes
         ? visibleChildren[visibleChildren.length - 1]
         : undefined;
@@ -326,7 +328,7 @@ const NativeContentSlide = ({ slide }: { slide: PreparedSlide }) => {
     contentChildren: slide.contentChildren,
     isSourceLayout,
   });
-  const hiddenUids = collectHiddenUids(slide.contentChildren).concat(
+  const hiddenUids = collectHiddenUids(slide.children).concat(
     source?.uid || [],
     slide.note?.uid || [],
   );
@@ -406,6 +408,7 @@ const scaleActiveSlide = (slidesElement: HTMLElement) => {
   );
   if (!container) return;
   container.style.transform = "none";
+  container.style.overflow = "visible";
   const containerHeight = container.offsetHeight;
   const containerWidth = container.offsetWidth;
   const content = container.firstElementChild as HTMLElement | null;
@@ -422,24 +425,19 @@ const scaleActiveSlide = (slidesElement: HTMLElement) => {
     );
   };
 
-  if (fitsAtScale(1)) {
+  const scale = findLargestFittingScale({ fitsAtScale });
+  if (scale === 1) {
     content.style.width = "100%";
     return;
   }
-
-  let lowerScale = 0.05;
-  let upperScale = 1;
-  for (let iteration = 0; iteration < 10; iteration += 1) {
-    const candidateScale = (lowerScale + upperScale) / 2;
-    if (fitsAtScale(candidateScale)) {
-      lowerScale = candidateScale;
-    } else {
-      upperScale = candidateScale;
-    }
+  if (scale === undefined) {
+    content.style.width = "100%";
+    container.style.overflow = "auto";
+    return;
   }
 
-  content.style.width = `${containerWidth / lowerScale}px`;
-  content.style.transform = `scale(${lowerScale})`;
+  content.style.width = `${containerWidth / scale}px`;
+  content.style.transform = `scale(${scale})`;
 };
 
 const NativePresentationContent = ({

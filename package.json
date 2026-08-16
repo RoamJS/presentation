@@ -5,6 +5,7 @@
   "main": "./build/main.js",
   "scripts": {
     "start": "samepage dev",
+    "test": "ts-node --transpile-only --project tsconfig.test.json src/components/nativeSlideUtils.test.ts",
     "prebuild:roam": "npm install",
     "build:roam": "samepage build --dry"
   },
