@@ -242,7 +242,7 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
   max-width: 100%;
 }
 
-.roamjs-media-container {
+[data-roamjs-native-renderer] .roamjs-native-source-container {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -250,20 +250,20 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
   position: relative;
 }
 
-.roamjs-media-container > span {
+[data-roamjs-native-renderer] .roamjs-native-source-container > span {
   display: none !important;
 }
 
-.roamjs-media-container > div,
-.roamjs-media-container .rm-iframe-container,
-.roamjs-media-container .rm-video-player {
+[data-roamjs-native-renderer] .roamjs-native-source-container > div,
+[data-roamjs-native-renderer] .roamjs-native-source-container .rm-iframe-container,
+[data-roamjs-native-renderer] .roamjs-native-source-container .rm-video-player {
   height: auto !important;
   inset: auto !important;
   position: static !important;
   width: 100%;
 }
 
-.roamjs-media-container iframe {
+[data-roamjs-native-renderer] .roamjs-native-source-container iframe {
   aspect-ratio: 16 / 9;
   height: auto !important;
   inset: auto !important;

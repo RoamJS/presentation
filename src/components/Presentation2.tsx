@@ -22,8 +22,8 @@ import {
   VALID_THEMES,
 } from "./Presentation";
 import NativeRoamContent from "./NativeRoamContent";
+import { getVisibleLayoutSource, HIDE_REGEX } from "./nativeSlideUtils";
 
-const HIDE_REGEX = /(?:\[\[{|{\[\[|{)hide(?:\]\]}|}\]\]|})/i;
 const LAYOUTS = [
   "Image Left",
   "Image Center",
@@ -319,7 +319,10 @@ const NativeContentSlide = ({ slide }: { slide: PreparedSlide }) => {
   const isSourceLayout = isImageLayout || isIframeLayout || isMediaLayout;
   const isLeftLayout = ENDS_WITH_LEFT.test(slide.layout);
   const isCenterLayout = ENDS_WITH_CENTER.test(slide.layout);
-  const source = isSourceLayout ? slide.contentChildren[0] : undefined;
+  const source = getVisibleLayoutSource({
+    contentChildren: slide.contentChildren,
+    isSourceLayout,
+  });
   const hiddenUids = collectHiddenUids(slide.contentChildren).concat(
     source?.uid || [],
     slide.note?.uid || [],
