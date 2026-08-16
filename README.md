@@ -7,18 +7,11 @@
 **Turn your Roam outlines into polished slide decks. Present your ideas with beautiful themes, speaker notes, transitions, and flexible slide layouts (images, iframes, media) — all powered by the structure you already write in your graph.**
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/RoamJS/presentation)
+[![Slack](https://img.shields.io/badge/Slack-%23roam--js-purple)](https://roamresearch.slack.com/archives/C016N2B66JU)
 
 ## Usage
 
 Type `{{presentation}}` or `{{slides}}` in a block. Clicking the button will overlay a presentation directly from Roam! Exit the presentation by hitting 'ESC'.
-
-An experimental native-renderer path is available alongside the current
-renderer. Use `{{presentation2}}` or `{{slides2}}` to render slide content with
-Roam's declarative React APIs while leaving `presentation` and `slides`
-unchanged.
-<!-- The paired copy/paste baseline and native-component coverage deck are in
-[`fixtures`](fixtures/README.md), and the two component trees are documented in
-[`docs/native-renderer-architecture.md`](docs/native-renderer-architecture.md). -->
 
 To specify what content is part of the presentation, create a child block for each slide. The text of each child will serve as the slide title. Each child block then in turn renders its children as the slide contents in a bulleted outline. For example, the Playground presentation below uses the following structure:
 
@@ -40,6 +33,14 @@ If a slide has `{title}` in the title or has no children, it will render as a ti
 By default, presentations start on the first slide. If the cursor is in any of the other slide trees when the button is pressed, the presentation will start on that slide. When the presentation closes, it will return focus to the title block of whichever slide it was on.
 
 Any blocks with images will be rendered without a bullet. Any bullets that are collapsed will be filtered out of the presentation view.
+
+### Native Renderer
+
+An experimental native-renderer path is available alongside the current renderer. Use `{{presentation2}}` or `{{slides2}}` to render slide content with Roam's declarative React APIs while leaving `presentation` and `slides` unchanged.
+
+<!-- The paired copy/paste baseline and native-component coverage deck are in
+[`fixtures`](fixtures/README.md), and the two component trees are documented in
+[`docs/native-renderer-architecture.md`](docs/native-renderer-architecture.md). -->
 
 ## Themes
 
