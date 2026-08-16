@@ -1,4 +1,5 @@
 import React from "react";
+import type {} from "roamjs-components/types";
 
 type BlockContent = {
   kind: "block";
@@ -34,22 +35,8 @@ type SearchContent = {
 export type NativeRoamContentProps =
   BlockContent | PageContent | StringContent | SearchContent;
 
-type NativeReactComponents = {
-  Block: React.ComponentType<Omit<BlockContent, "kind">>;
-  Page: React.ComponentType<
-    | { uid: string; title?: never; hideMentions?: boolean }
-    | { uid?: never; title: string; hideMentions?: boolean }
-  >;
-  Search: React.ComponentType<Omit<SearchContent, "kind">>;
-  BlockString: React.ComponentType<Omit<StringContent, "kind">>;
-};
-
 const getNativeComponents = () => {
-  const components = (
-    window.roamAlphaAPI?.ui as typeof window.roamAlphaAPI.ui & {
-      react?: NativeReactComponents;
-    }
-  )?.react;
+  const components = window.roamAlphaAPI?.ui.react;
   if (!components) {
     throw new Error(
       "This version of Roam does not expose roamAlphaAPI.ui.react.",

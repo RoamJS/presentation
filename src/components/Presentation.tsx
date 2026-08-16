@@ -68,6 +68,7 @@ const parseSolo = ({
         heading: 0,
         open: true,
         textAlign,
+        blockViewType: "outline",
         editTime: new Date(),
         props: { imageResize: {}, iframe: {} },
       },
