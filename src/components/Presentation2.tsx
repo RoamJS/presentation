@@ -405,21 +405,41 @@ const scaleActiveSlide = (slidesElement: HTMLElement) => {
     ".present .roamjs-bullets-container",
   );
   if (!container) return;
+  container.style.transform = "none";
   const containerHeight = container.offsetHeight;
   const containerWidth = container.offsetWidth;
   const content = container.firstElementChild as HTMLElement | null;
   if (!content || containerHeight <= 0 || containerWidth <= 0) return;
-  const contentHeight = content.offsetHeight;
-  const contentWidth = content.offsetWidth;
-  if (contentHeight > containerHeight || contentWidth > containerWidth) {
-    const scale = Math.min(
-      containerHeight / contentHeight,
-      containerWidth / contentWidth,
+  content.style.transform = "none";
+  content.style.transformOrigin = "left top";
+  content.style.width = `${containerWidth}px`;
+
+  const fitsAtScale = (scale: number) => {
+    content.style.width = `${containerWidth / scale}px`;
+    return (
+      content.offsetHeight * scale <= containerHeight &&
+      content.scrollWidth * scale <= containerWidth + 2
     );
-    container.style.transform = `scale(${scale})`;
-  } else {
-    container.style.transform = "initial";
+  };
+
+  if (fitsAtScale(1)) {
+    content.style.width = "100%";
+    return;
   }
+
+  let lowerScale = 0.05;
+  let upperScale = 1;
+  for (let iteration = 0; iteration < 10; iteration += 1) {
+    const candidateScale = (lowerScale + upperScale) / 2;
+    if (fitsAtScale(candidateScale)) {
+      lowerScale = candidateScale;
+    } else {
+      upperScale = candidateScale;
+    }
+  }
+
+  content.style.width = `${containerWidth / lowerScale}px`;
+  content.style.transform = `scale(${lowerScale})`;
 };
 
 const NativePresentationContent = ({
@@ -480,12 +500,16 @@ const NativePresentationContent = ({
       minScale: 1,
       maxScale: 1,
     });
-    deck.initialize();
+    const layoutActiveSlide = () => {
+      deck.layout();
+      requestAnimationFrame(() => {
+        if (slidesRef.current) scaleActiveSlide(slidesRef.current);
+      });
+    };
+    deck.on("ready", layoutActiveSlide);
+    deck.initialize().then(layoutActiveSlide);
     revealRef.current = deck;
-    const observer = new MutationObserver(() => {
-      if (slidesRef.current) scaleActiveSlide(slidesRef.current);
-      revealRef.current?.layout?.();
-    });
+    const observer = new MutationObserver(layoutActiveSlide);
     observer.observe(slidesRef.current, {
       attributes: true,
       attributeFilter: ["class"],
@@ -495,6 +519,7 @@ const NativePresentationContent = ({
     setInitialized(true);
     return () => {
       observer.disconnect();
+      deck.off("ready", layoutActiveSlide);
       (deck as Reveal & { destroy?: () => void }).destroy?.();
     };
   }, [showNotes]);

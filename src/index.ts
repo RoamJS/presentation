@@ -135,6 +135,45 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
   overflow: visible;
 }
 
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .roam-block-container:has(> .rm-block-main .rm-table) > .rm-block-main {
+  display: block !important;
+  flex: 1 1 auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  min-width: 0;
+  overflow: visible;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+}
+
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .roam-block-container:has(> .rm-block-main .rm-table) > .rm-block-main > .rm-block__controls,
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .roam-block-container:has(> .rm-block-main .rm-table) > .rm-block-children {
+  display: none;
+}
+
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .rm-block__input:has(.rm-table),
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .rm-table,
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .rm-table table {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .rm-table table {
+  background-color: transparent;
+  border-bottom: 1px solid #a7b6c2;
+  color: inherit;
+  table-layout: fixed;
+}
+
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .rm-table td {
+  color: inherit;
+  max-width: none !important;
+  min-width: 0 !important;
+  width: auto !important;
+}
+
 #roamjs-reveal-root[data-roamjs-show-notes="true"] .slides > section > h1,
 #roamjs-reveal-root[data-roamjs-show-notes="true"] .slides > section > h3,
 #roamjs-reveal-root[data-roamjs-show-notes="true"] .slides > section > .r-stretch {
