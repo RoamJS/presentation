@@ -12,6 +12,14 @@
 
 Type `{{presentation}}` or `{{slides}}` in a block. Clicking the button will overlay a presentation directly from Roam! Exit the presentation by hitting 'ESC'.
 
+An experimental native-renderer path is available alongside the current
+renderer. Use `{{presentation2}}` or `{{slides2}}` to render slide content with
+Roam's declarative React APIs while leaving `presentation` and `slides`
+unchanged.
+<!-- The paired copy/paste baseline and native-component coverage deck are in
+[`fixtures`](fixtures/README.md), and the two component trees are documented in
+[`docs/native-renderer-architecture.md`](docs/native-renderer-architecture.md). -->
+
 To specify what content is part of the presentation, create a child block for each slide. The text of each child will serve as the slide title. Each child block then in turn renders its children as the slide contents in a bulleted outline. For example, the Playground presentation below uses the following structure:
 
 ```

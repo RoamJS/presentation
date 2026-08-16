@@ -5,13 +5,14 @@
   "main": "./build/main.js",
   "scripts": {
     "start": "samepage dev",
+    "test": "ts-node --transpile-only --project tsconfig.test.json src/components/nativeSlideUtils.test.ts",
     "prebuild:roam": "npm install",
     "build:roam": "samepage build --dry"
   },
   "license": "MIT",
   "dependencies": {
     "reveal.js": "^4.3.0",
-    "roamjs-components": "^0.82.0"
+    "roamjs-components": "^0.88.4"
   },
   "samepage": {
     "extends": "node_modules/roamjs-components/package.json"
