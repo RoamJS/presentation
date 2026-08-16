@@ -117,12 +117,15 @@ export const prepareSlides = ({
           return "";
         })
         .trim();
+      const visibleChildren = slide.children.filter(
+        (child) => !HIDE_REGEX.test(child.text),
+      );
       const note = showNotes
-        ? slide.children[slide.children.length - 1]
+        ? visibleChildren[visibleChildren.length - 1]
         : undefined;
       const contentChildren = showNotes
-        ? slide.children.slice(0, -1)
-        : slide.children;
+        ? visibleChildren.slice(0, -1)
+        : visibleChildren;
 
       return {
         ...slide,
@@ -601,12 +604,16 @@ const Presentation2 = ({
     setStartIndex(Math.max(0, nextSlides.findIndex(containsUid)));
   }, [getSlides]);
 
-  const open = useCallback(() => {
-    setShowOverlay(true);
-    Array.from(document.head.children)
-      .filter((style) => style.id.endsWith(`${normalizedTheme}.css`))
-      .forEach((style) => ((style as HTMLStyleElement).disabled = false));
-  }, [normalizedTheme]);
+  const open = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (event.detail === 0) initializePresentation();
+      setShowOverlay(true);
+      Array.from(document.head.children)
+        .filter((style) => style.id.endsWith(`${normalizedTheme}.css`))
+        .forEach((style) => ((style as HTMLStyleElement).disabled = false));
+    },
+    [initializePresentation, normalizedTheme],
+  );
 
   const close = useCallback(
     (currentSlide: number) => {
