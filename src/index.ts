@@ -135,7 +135,7 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
   overflow: visible;
 }
 
-[data-roamjs-native-renderer] .roamjs-native-slide-tree .roam-block-container:has(> .rm-block-main .rm-table) > .rm-block-main {
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .roam-block-container:has(> .rm-block-main :is(.rm-table, .rm-mermaid)) > .rm-block-main {
   display: block !important;
   flex: 1 1 auto !important;
   margin-left: 0 !important;
@@ -147,8 +147,8 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
   width: 100% !important;
 }
 
-[data-roamjs-native-renderer] .roamjs-native-slide-tree .roam-block-container:has(> .rm-block-main .rm-table) > .rm-block-main > .rm-block__controls,
-[data-roamjs-native-renderer] .roamjs-native-slide-tree .roam-block-container:has(> .rm-block-main .rm-table) > .rm-block-children {
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .roam-block-container:has(> .rm-block-main :is(.rm-table, .rm-mermaid)) > .rm-block-main > .rm-block__controls,
+[data-roamjs-native-renderer] .roamjs-native-slide-tree .roam-block-container:has(> .rm-block-main :is(.rm-table, .rm-mermaid)) > .rm-block-children {
   display: none;
 }
 
