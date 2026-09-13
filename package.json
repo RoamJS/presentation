@@ -1,6 +1,6 @@
 {
   "name": "presentation",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Build slideshow presentations from within Roam!",
   "main": "./build/main.js",
   "scripts": {

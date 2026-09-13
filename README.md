@@ -59,20 +59,6 @@ Apart from these themes, you could also use `roam/css` to style the presentation
 - `navigate-left` - The go left button
 - `navigate-right` - The go right button
 
-### Graph theme compatibility
-
-Presentation content uses the selected Reveal theme for its text and links, even
-when a graph theme such as Roam Studio Craft is enabled. Native tables, headings,
-and code retain presentation-sized text; embedded content keeps readable contrast. The graph theme remains active outside
-the presentation.
-
-To run the live theme regression checks, enable Roam Studio with Craft in a test
-graph, build the extension, then use `roamjs-load-extension` with
-`--test-module e2e/roam-theme-compat.mjs`. The check exercises both renderers with
-black and white Reveal themes, compares body styles with Studio styles temporarily
-disabled, and checks collapsible content, tables, headings, code, and native block/page embeds. It removes
-its temporary fixture page afterward.
-
 ## Notes
 
 To add Speaker notes, add `{notes:true}` to the button text. The last bullet of each child will be used as the speaker notes of the slide. To combine with theme above, the button text would look like this:
