@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0 - 2026-09-13
+
+### Fixed
+
+- Keep presentation text, links, tables, native headings, code, and embeds readable when graph themes such as Roam Studio Craft are enabled.
+
 ## 1.0.1 - 2026-08-16
 
 ### Added

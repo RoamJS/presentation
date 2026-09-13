@@ -104,6 +104,73 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
   pointer-events: none;
 }
 
+/* Keep graph themes from replacing the presentation's typography. */
+#roamjs-presentation-container .slides :is(.roam-block-container, .rm-block-main, .rm-block__input) {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+#roamjs-presentation-container .slides .rm-block__input {
+  min-height: 0 !important;
+}
+#roamjs-presentation-container .slides :is(.rm-page-ref, .rm-alias) {
+  color: var(--r-link-color);
+  background: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  border: 0;
+}
+#roamjs-presentation-container .slides :is(.rm-page-ref__brackets, .rm-block-ref, .rm-strikethrough) {
+  color: inherit;
+}
+#roamjs-presentation-container .slides .rm-highlight {
+  color: #202224;
+}
+#roamjs-presentation-container .slides :not(pre) > code {
+  font-size: 0.9em;
+  line-height: inherit;
+}
+
+#roamjs-presentation-container .slides .rm-code-block .cm-line {
+  font-family: monospace;
+  font-size: inherit;
+  line-height: 1.4;
+}
+
+#roamjs-presentation-container .slides :is(.rm-table, .rm-table__cell, tr, td, th, .rm-attr-ref, blockquote) {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+#roamjs-presentation-container .slides .rm-heading-level-1 > .rm-block-main .rm-block__input {
+  font-size: 1.4em !important;
+}
+#roamjs-presentation-container .slides .rm-heading-level-2 > .rm-block-main .rm-block__input {
+  font-size: 1.2em !important;
+}
+#roamjs-presentation-container .slides .rm-heading-level-3 > .rm-block-main .rm-block__input {
+  font-size: 1.1em !important;
+}
+#roamjs-presentation-container .slides :is(.rm-bullet, .rm-bullet__inner) {
+  font-size: inherit;
+}
+#roamjs-presentation-container .slides .rm-block--document > .rm-block-main > .rm-block__controls {
+  visibility: hidden;
+}
+
+#roamjs-presentation-container .slides :is(.rm-embed-container, .rm-embed-settings, .rm-query, .rm-query-title, .rm-search-query-header) {
+  background-color: transparent;
+  color: inherit;
+}
+
+#roamjs-presentation-container .slides :is(.rm-page__title, .rm-page__title a) {
+  color: var(--r-link-color);
+  font-size: inherit;
+}
+
 [data-roamjs-native-renderer] .roamjs-native-block-string * {
   color: inherit;
   font-family: Inter, sans-serif;
