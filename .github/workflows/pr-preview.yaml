@@ -1,0 +1,61 @@
+name: Publish Extension Preview
+
+on:
+  workflow_run:
+    workflows:
+      - Build Extension Preview
+    types:
+      - completed
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: publish-extension-preview-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: ${{ github.event.workflow_run.head_branch }}
+      PREVIEW_BUCKET: samepage.network
+      REPOSITORY: ${{ github.repository }}
+    steps:
+      - name: download preview artifact
+        uses: actions/download-artifact@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: extension-preview
+          path: preview
+          run-id: ${{ github.event.workflow_run.id }}
+      - name: validate preview artifact
+        shell: bash
+        run: |
+          test -f preview/extension.js
+          if find preview -type l -print -quit | grep -q .; then
+            echo "Preview artifacts must not contain symbolic links."
+            exit 1
+          fi
+      - name: configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+      - name: publish preview
+        shell: bash
+        run: |
+          prefix="releases/${REPOSITORY}/${BRANCH}/"
+          lowercase_prefix="$(printf '%s' "$prefix" | tr '[:upper:]' '[:lower:]')"
+
+          aws s3 cp preview "s3://${PREVIEW_BUCKET}/${prefix}" --recursive --no-follow-symlinks
+
+          if [ "$prefix" != "$lowercase_prefix" ]; then
+            aws s3 cp preview "s3://${PREVIEW_BUCKET}/${lowercase_prefix}" --recursive --no-follow-symlinks
+          fi
