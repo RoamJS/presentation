@@ -1,17 +1,29 @@
-name: Publish Extension
-on: pull_request
+name: Build Extension Preview
 
-env:
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  AWS_REGION: ${{ vars.AWS_REGION }}
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-extension-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: install
         run: npm install
       - name: build
-        run: npx samepage build
+        run: npx samepage build --dry
+      - name: upload preview artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: extension-preview
+          path: dist/*
+          if-no-files-found: error
