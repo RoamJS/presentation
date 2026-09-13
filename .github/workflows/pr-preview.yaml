@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: publish-extension-preview-${{ github.event.workflow_run.head_branch }}
+  group: publish-extension-preview-${{ github.event.workflow_run.head_repository.full_name }}-${{ github.event.workflow_run.head_branch }}
   cancel-in-progress: true
 
 jobs:
@@ -52,10 +52,12 @@ jobs:
         shell: bash
         run: |
           prefix="releases/${REPOSITORY}/${BRANCH}/"
-          lowercase_prefix="$(printf '%s' "$prefix" | tr '[:upper:]' '[:lower:]')"
-
           aws s3 cp preview "s3://${PREVIEW_BUCKET}/${prefix}" --recursive --no-follow-symlinks
 
-          if [ "$prefix" != "$lowercase_prefix" ]; then
-            aws s3 cp preview "s3://${PREVIEW_BUCKET}/${lowercase_prefix}" --recursive --no-follow-symlinks
-          fi
+          while IFS= read -r -d '' file; do
+            key="${prefix}${file#preview/}"
+            lowercase_key="$(printf '%s' "$key" | LC_ALL=C tr '[:upper:]' '[:lower:]')"
+            if [ "$key" != "$lowercase_key" ]; then
+              aws s3 cp "$file" "s3://${PREVIEW_BUCKET}/${lowercase_key}" --no-follow-symlinks
+            fi
+          done < <(find preview -type f -print0)

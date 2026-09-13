@@ -4,13 +4,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - "src/**"
-      - "README.md"
-      - "package.json"
-      - "package-lock.json"
-      - ".github/workflows/pr.yaml"
-      - ".github/workflows/pr-preview.yaml"
 
 permissions:
   contents: read
