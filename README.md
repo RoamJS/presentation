@@ -6,8 +6,7 @@
 
 **Turn your Roam outlines into polished slide decks. Present your ideas with beautiful themes, speaker notes, transitions, and flexible slide layouts (images, iframes, media) — all powered by the structure you already write in your graph.**
 
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/RoamJS/presentation)
-[![Slack](https://img.shields.io/badge/Slack-%23roam--js-purple)](https://roamresearch.slack.com/archives/C016N2B66JU)
+[![RoamJS](https://roamjs.com/badges/website.svg)](https://roamjs.com/) [![DeepWiki](https://roamjs.com/badges/deepwiki.svg)](https://deepwiki.com/RoamJS/presentation) [![Slack](https://roamjs.com/badges/slack.svg)](https://roamresearch.slack.com/archives/C016N2B66JU)
 
 ## Usage
 
