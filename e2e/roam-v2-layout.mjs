@@ -3,6 +3,11 @@ import assert from "node:assert/strict";
 export default {
   runtimeNames: ["presentation"],
   async run({ page, outDir }) {
+    const settingsClose = page.locator(".rm-settings-close-button");
+    if (await settingsClose.isVisible()) {
+      await settingsClose.click();
+      await settingsClose.waitFor({ state: "hidden" });
+    }
     const fixture = await page.evaluate(async () => {
       const api = window.roamAlphaAPI;
       const uid = api.util.generateUID();
