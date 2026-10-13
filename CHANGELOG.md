@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1 - 2026-10-13
+
+### Fixed
+
+- Scale and align collapsible bullet chevrons with Presentation 2 text.
+- Keep native horizontal block views visible and within Presentation 2 slides, including when collapsible bullets are enabled.
+- Remove blank separator space from horizontal Presentation 2 blocks.
+
 ## 1.2.0 - 2026-09-13
 
 ### Fixed

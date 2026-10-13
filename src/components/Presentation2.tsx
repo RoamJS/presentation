@@ -167,23 +167,28 @@ const NativeCollapsibleNode = ({ node }: { node: TreeNode }) => {
         }`}
       >
         {!!children.length && (
-          <button
+          <Button
             aria-label={expanded ? "Collapse bullet" : "Expand bullet"}
-            className="bp3-button bp3-minimal roamjs-native-collapsible-toggle"
+            aria-expanded={expanded}
+            className="roamjs-native-collapsible-toggle"
+            minimal
             onClick={() => setExpanded((value) => !value)}
-            type="button"
           >
-            <span
-              className={`bp3-icon bp3-icon-caret-${
-                expanded ? "down" : "right"
-              }`}
-            />
-          </button>
+            <svg aria-hidden="true" viewBox="0 0 16 16">
+              <path d={expanded ? "M3 5l5 5 5-5" : "M5 3l5 5-5 5"} />
+            </svg>
+          </Button>
         )}
         <NativeRoamContent kind="block" uid={node.uid} open={false} />
       </div>
       {expanded && (
-        <div className="roamjs-native-collapsible-children">
+        <div
+          className={`roamjs-native-collapsible-children${
+            node.blockViewType === "horizontal-outline"
+              ? " roamjs-native-collapsible-horizontal"
+              : ""
+          }`}
+        >
           {children.map((child) => (
             <NativeCollapsibleNode key={child.uid} node={child} />
           ))}
@@ -265,7 +270,13 @@ const NativeSlideTree = ({
       (node) => !hiddenUidSet.has(node.uid) && !HIDE_REGEX.test(node.text),
     );
     return (
-      <div className="roamjs-native-slide-tree roamjs-native-collapsible">
+      <div
+        className={`roamjs-native-slide-tree roamjs-native-collapsible${
+          slide.blockViewType === "horizontal-outline"
+            ? " roamjs-native-collapsible-horizontal"
+            : ""
+        }`}
+      >
         {visibleNodes.map((node) => (
           <NativeCollapsibleNode key={node.uid} node={node} />
         ))}
