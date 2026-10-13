@@ -384,6 +384,10 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
   min-width: 0;
 }
 
+[data-roamjs-native-renderer] :is(.rm-level-horizontal-outline, .roamjs-native-collapsible-horizontal) .rm-block-separator {
+  display: none;
+}
+
 [data-roamjs-native-renderer] .roamjs-native-source-container img,
 [data-roamjs-native-renderer] .roamjs-native-source-container video,
 [data-roamjs-native-renderer] .roamjs-native-source-container svg {
