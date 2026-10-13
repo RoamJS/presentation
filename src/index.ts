@@ -326,19 +326,52 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
 }
 
 [data-roamjs-native-renderer] .roamjs-native-collapsible {
-  padding-left: 32px;
+  padding-left: 1em;
 }
 
 [data-roamjs-native-renderer] .roamjs-native-collapsible-toggle {
+  align-items: center;
   color: inherit;
-  left: -32px;
+  display: flex;
+  font-size: inherit;
+  height: 1.5em;
+  justify-content: center;
+  left: -1em;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
   position: absolute;
-  top: 4px;
+  top: 0;
+  width: 1em;
   z-index: 1;
 }
 
+[data-roamjs-native-renderer] .roamjs-native-collapsible-toggle svg {
+  fill: none;
+  height: 0.5em;
+  margin: 0;
+  stroke: currentColor;
+  stroke-width: 2;
+  width: 0.5em;
+}
+
 [data-roamjs-native-renderer] .roamjs-native-collapsible-children {
-  margin-left: 32px;
+  margin-left: 1em;
+}
+
+/* Roam's horizontal gutters are measured against the graph viewport. Keep
+   them inside the slide so Reveal's fitting pass does not chase overflow. */
+[data-roamjs-native-renderer] .rm-level-horizontal-outline__children {
+  gap: 0.5em;
+  margin: 0 !important;
+  max-width: 100%;
+  padding: 0 !important;
+}
+
+[data-roamjs-native-renderer] .rm-level-horizontal-outline__child {
+  flex: 1 1 0;
+  max-width: none;
+  min-width: 0;
 }
 
 [data-roamjs-native-renderer] .roamjs-native-source-container img,

@@ -167,18 +167,17 @@ const NativeCollapsibleNode = ({ node }: { node: TreeNode }) => {
         }`}
       >
         {!!children.length && (
-          <button
+          <Button
             aria-label={expanded ? "Collapse bullet" : "Expand bullet"}
-            className="bp3-button bp3-minimal roamjs-native-collapsible-toggle"
+            aria-expanded={expanded}
+            className="roamjs-native-collapsible-toggle"
+            minimal
             onClick={() => setExpanded((value) => !value)}
-            type="button"
           >
-            <span
-              className={`bp3-icon bp3-icon-caret-${
-                expanded ? "down" : "right"
-              }`}
-            />
-          </button>
+            <svg aria-hidden="true" viewBox="0 0 16 16">
+              <path d={expanded ? "M3 5l5 5 5-5" : "M5 3l5 5-5 5"} />
+            </svg>
+          </Button>
         )}
         <NativeRoamContent kind="block" uid={node.uid} open={false} />
       </div>
