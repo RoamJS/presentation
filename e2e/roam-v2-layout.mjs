@@ -62,6 +62,40 @@ export default {
       );
       for (let i = 0; i < 3; i++)
         await create(rootHorizontal, `Column ${i + 1}`, i);
+      const collapsibleHorizontal = await create(
+        uid,
+        "{{presentation2: {theme:black} {collapsible}}}",
+        2,
+      );
+      const collapsibleContent = await create(
+        collapsibleHorizontal,
+        "Collapsible horizontal block view",
+        0,
+      );
+      const collapsibleColumns = await create(
+        collapsibleContent,
+        "Expand these three columns",
+        0,
+        { "block-view-type": "horizontal-outline" },
+      );
+      for (let i = 0; i < 3; i++) {
+        const column = await create(
+          collapsibleColumns,
+          ["Discover", "Build", "Review"][i],
+          i,
+        );
+        await create(column, `Column detail ${i + 1}`, 0);
+      }
+      const collapsibleRoot = await create(
+        collapsibleHorizontal,
+        "Collapsible horizontal slide root",
+        1,
+        { "block-view-type": "horizontal-outline" },
+      );
+      for (let i = 0; i < 3; i++) {
+        const column = await create(collapsibleRoot, `Root column ${i + 1}`, i);
+        await create(column, `Root detail ${i + 1}`, 0);
+      }
       await api.ui.mainWindow.openPage({ page: { uid } });
       return { uid };
     });
@@ -170,6 +204,84 @@ export default {
             path: `${outDir}/horizontal-${slide}-${viewport.width}.png`,
           });
           checks.push({ viewport, slide, alignment, layout });
+        }
+        await close();
+        await page.locator("[data-roamjs-presentation2]").nth(2).focus();
+        await page.locator("[data-roamjs-presentation2]").nth(2).click();
+        for (let slide = 0; slide < 2; slide++) {
+          if (slide)
+            await page.locator("#roamjs-reveal-root .navigate-right").click();
+          await page.waitForTimeout(1200);
+          const active = page.locator("section.present");
+          if (!slide) {
+            await active
+              .getByRole("button", { name: "Expand bullet" })
+              .first()
+              .click();
+          }
+          const columns = active.locator(
+            slide
+              ? ".roamjs-native-slide-tree > .roamjs-native-collapsible-node"
+              : ".roamjs-native-slide-tree > .roamjs-native-collapsible-node > .roamjs-native-collapsible-children > .roamjs-native-collapsible-node",
+          );
+          assert.equal(await columns.count(), 3);
+          for (let i = 0; i < 3; i++) {
+            await columns
+              .nth(i)
+              .getByRole("button", { name: "Expand bullet" })
+              .click();
+          }
+          await page.waitForTimeout(300);
+          const layout = await columns.evaluateAll((elements) =>
+            elements.map((element) => {
+              const rect = element.getBoundingClientRect();
+              return {
+                x: rect.x,
+                y: rect.y,
+                width: rect.width,
+                right: rect.right,
+              };
+            }),
+          );
+          await page.screenshot({
+            path: `${outDir}/collapsible-horizontal-${slide}-${viewport.width}.png`,
+          });
+          assert(
+            Math.max(...layout.map((column) => column.y)) -
+              Math.min(...layout.map((column) => column.y)) <
+              2,
+            `Collapsible children must remain horizontal: ${JSON.stringify(layout)}`,
+          );
+          assert(layout[0].x < layout[1].x && layout[1].x < layout[2].x);
+          assert(layout[2].right <= viewport.width + 2);
+          const detail = slide ? "Root detail 2" : "Column detail 2";
+          await columns
+            .nth(1)
+            .getByRole("button", { name: "Collapse bullet" })
+            .click();
+          assert.equal(
+            await active.getByText(detail, { exact: true }).count(),
+            0,
+          );
+          assert.equal(
+            await active
+              .getByText(slide ? "Root detail 1" : "Column detail 1", {
+                exact: true,
+              })
+              .count(),
+            1,
+          );
+          checks.push({ viewport, slide, collapsibleHorizontal: true, layout });
+          if (!slide) {
+            await active
+              .getByRole("button", { name: "Collapse bullet" })
+              .first()
+              .click();
+            assert.equal(
+              await active.getByText("Discover", { exact: true }).count(),
+              0,
+            );
+          }
         }
         await close();
       }

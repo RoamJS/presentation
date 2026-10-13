@@ -182,7 +182,13 @@ const NativeCollapsibleNode = ({ node }: { node: TreeNode }) => {
         <NativeRoamContent kind="block" uid={node.uid} open={false} />
       </div>
       {expanded && (
-        <div className="roamjs-native-collapsible-children">
+        <div
+          className={`roamjs-native-collapsible-children${
+            node.blockViewType === "horizontal-outline"
+              ? " roamjs-native-collapsible-horizontal"
+              : ""
+          }`}
+        >
           {children.map((child) => (
             <NativeCollapsibleNode key={child.uid} node={child} />
           ))}
@@ -264,7 +270,13 @@ const NativeSlideTree = ({
       (node) => !hiddenUidSet.has(node.uid) && !HIDE_REGEX.test(node.text),
     );
     return (
-      <div className="roamjs-native-slide-tree roamjs-native-collapsible">
+      <div
+        className={`roamjs-native-slide-tree roamjs-native-collapsible${
+          slide.blockViewType === "horizontal-outline"
+            ? " roamjs-native-collapsible-horizontal"
+            : ""
+        }`}
+      >
         {visibleNodes.map((node) => (
           <NativeCollapsibleNode key={node.uid} node={node} />
         ))}

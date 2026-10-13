@@ -359,6 +359,16 @@ code[class*="language-"],pre[class*="language-"]{color:black;text-shadow:0 1px w
   margin-left: 1em;
 }
 
+[data-roamjs-native-renderer] .roamjs-native-collapsible-horizontal {
+  display: flex;
+  gap: 1em;
+}
+
+[data-roamjs-native-renderer] .roamjs-native-collapsible-horizontal > .roamjs-native-collapsible-node {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
 /* Roam's horizontal gutters are measured against the graph viewport. Keep
    them inside the slide so Reveal's fitting pass does not chase overflow. */
 [data-roamjs-native-renderer] .rm-level-horizontal-outline__children {
